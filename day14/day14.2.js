@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { createHash} = require('crypto');
 
-fs.readFile(path.join(__dirname, 'day14.input'), 'utf8', (err, data) => {
+fs.readFile(path.join(__dirname, 'day14.input.ex'), 'utf8', (err, data) => {
     let platform = [];
     let hash;
     let seenCounter = 1;
@@ -18,10 +18,12 @@ fs.readFile(path.join(__dirname, 'day14.input'), 'utf8', (err, data) => {
     platform = tilt(rotate(platform));
     hash = hashPlatform(platform);
 
-    while (seenCounter < 100 || !seen.has(hash)) {
+    while (!seen.has(hash)) {
         let load = beamLoad(platform, (seenCounter - 1));
         seen.set(hash, load);
         seenAt.set(hash, seenCounter);
+
+        // console.log(hash, load, seenCounter);
 
         counterMap.set(seenCounter, hash);
         seenCounter++;
