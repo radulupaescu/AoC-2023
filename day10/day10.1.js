@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require("path");
+const path = require('path');
 
 const EXIT_S = 'S';
 const EXIT_E = 'E';

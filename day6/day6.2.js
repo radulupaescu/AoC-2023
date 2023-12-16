@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require("path");
+const path = require('path');
 
 fs.readFile(path.join(__dirname, 'day6.input'), 'utf8', (err, data) => {
     const time = parseInt(data.split("\n")[0].split(':')[1].replaceAll(' ', ''));
